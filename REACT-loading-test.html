@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>React Top Loading Bar CDN</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="module">
+    import LoadingBar from "https://cdn.jsdelivr.net/npm/react-top-loading-bar@2.3.0/build/index.esm.js";
+
+    const { useRef } = React;
+
+    function App() {
+      const ref = useRef(null);
+
+      const handleClick = () => {
+        ref.current.continuousStart();
+        setTimeout(() => {
+          ref.current.complete();
+        }, 2000);
+      };
+
+      return React.createElement(
+        React.Fragment,
+        null,
+        React.createElement(LoadingBar, { color: "#f11946", ref: ref }),
+        React.createElement("h1", null, "Loading Bar Example"),
+        React.createElement("button", { onClick: handleClick }, "Start Loading")
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+  </script>
+</body>
+</html>
