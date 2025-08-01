@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>React Top Loading Bar - CDN UMD</title>
+  <title>React Top Loading Bar - Working CDN</title>
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://cdn.jsdelivr.net/npm/react-top-loading-bar@2.3.0/dist/react-top-loading-bar.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-top-loading-bar@2.1.0/dist/react-top-loading-bar.umd.js"></script>
   <style>
     body {
       font-family: sans-serif;
@@ -18,7 +18,7 @@
 
   <script>
     const { useRef } = React;
-    const LoadingBar = window['react-top-loading-bar'].default;
+    const LoadingBar = window.TopLoadingBar;
 
     function App() {
       const ref = useRef(null);
@@ -34,7 +34,7 @@
         React.Fragment,
         null,
         React.createElement(LoadingBar, { color: '#29d', ref: ref }),
-        React.createElement('h1', null, 'React Top Loading Bar'),
+        React.createElement('h1', null, 'React Top Loading Bar (CDN)'),
         React.createElement('button', { onClick: handleClick }, 'Start Loading')
       );
     }
